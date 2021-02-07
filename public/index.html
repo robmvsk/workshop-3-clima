@@ -20,7 +20,12 @@
       type="text/css"
       href="%PUBLIC_URL%/_dist_/index.css"
     />
-    <title>Snowpack & Tailwind App</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="%PUBLIC_URL%/_dist_/loading.css"
+    />
+    <title>Clima Mundial App</title>
   </head>
   <body>
     <!--
@@ -36,50 +41,83 @@
         <p
           class="text-base leading-6 text-indigo-600 font-semibold tracking-wide uppercase"
         >
-          Snowpack
+          Manipulación del DOM
         </p>
         <h3
-          class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
+          class="mt-2 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-3xl sm:leading-10"
         >
-          Tailwind template
+          ☁️ Clima Mundial 🌞 Workshop 3.1 🌧️
         </h3>
-        <p class="mt-4 max-w-2xl text-xl leading-7 text-gray-500 mx-auto">
-          Use this template to build awesome websites using Snowpack and
-          Tailwind. It also includes Prettier and automatic publish to GitHub
-          pages using GitHub Actions. Learn more:
-        </p>
-        <ul
-          class="text-xl leading-7 sm:flex justify-around sm:max-w-2xl sm:mx-auto mt-10"
+        <p
+          class="mt-2  leading-8 font-medium tracking-tight text-gray-900 sm:leading-10"
         >
-          <li class="my-4 p-4 px-6 bg-gray-300 hover:bg-gray-500">
-            <a href="https://snowpack.dev" target="_blank">snowpack.dev</a>
-          </li>
-          <li class="my-4 p-4 px-6 bg-gray-300 hover:bg-gray-500">
-            <a href="https://tailwindcss.com" target="_blank"
-              >tailwindcss.com</a
-            >
-          </li>
-          <li class="my-4 p-4 px-6 bg-gray-300 hover:bg-gray-500">
-            <a
-              href="https://docs.github.com/en/free-pro-team@latest/actions"
-              target="_blank"
-              >GitHub Actions</a
-            >
-          </li>
-        </ul>
-        <p class="mt-14 text-xl leading-7 text-gray-500">Start using it:</p>
-        <div class="my-5 bg-gray-800 p-5 text-white">
-          <code>
-            npx create-snowpack-app my-app --template snowpack-template-tailwind
-          </code>
-        </div>
-        <p class="mt-16 text-xl leading-7 text-gray-500 underline">
-          <a href="https://github.com/jonalvarezz/snowpack-template-tailwind"
-            >See on GitHub</a
-          >
+          Para usar esta aplicación, debes registrarte en:
+           <a class="text-blue-500" href="https://openweathermap.org" target="_blue">https://openweathermap.org</a>, y obtener un API Key.
         </p>
-      </div>
+        <input 
+            class="py-0 px-3 hover:bg-yellow-100 border-solid border-2 border-green-200 rounded-lg text-xs md:text-center md:border-t-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" 
+            aria-autocomplete="list" 
+            aria-labelledby="docsearch-label" 
+            id="clave" 
+            autocomplete="off" 
+            autocorrect="off" 
+            autocapitalize="off" 
+            spellcheck="false" 
+            minlength="10"
+            size="40"
+            placeholder="API Key of openweathermap" 
+            maxlength="164" 
+            type="search" 
+            value="">
+
+        <fieldset class="text-center">
+          <p class="p-3 mt-4 max-w-2xl text-xl leading-7 text-gray-500 mx-auto">
+            <legend class="mx-auto text-sm text-gray-500"></legend>
+              Conoce el clima de cualquier ciudad en vivo
+            </legend>
+          </p>
+          
+          <input 
+            class="py-0 px-3 hover:bg-yellow-100 border-solid border-2 border-green-200 rounded-lg text-xl md:text-center md:border-t-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" 
+            aria-autocomplete="list" 
+            aria-labelledby="docsearch-label" 
+            id="nombreCiudad" 
+            autocomplete="off" 
+            autocorrect="off" 
+            autocapitalize="off" 
+            spellcheck="false" 
+            placeholder="Ciudad a buscar" 
+            maxlength="100"
+            maxlength="2"
+            type="search" 
+            value="">
+
+          <button
+            type="submit"
+            id="buscarCiudad"
+            class="py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+           Buscar
+          </button>
+            <button
+              type="reset"
+              id="limpiar"
+              class="py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+            >
+              Limpiar
+            </button>
+        </fieldset>
+
+        <div id="app" class= "mt-10 grid grid-cols-4  gap-3"></div>
     </div>
+
+    <footer class="text-center mt-48 p-6 text-sm text-gray-500">
+      <p>
+        Powered by
+        <a href="https://openweathermap.org" target="_blank">https://openweathermap.org</a>
+        | Made by <a href="https://robmvsk.github.io/workshop-3-clima">@robmvsk</a>
+      </p>
+    </footer>
 
     <!-- Add more scripts here -->
     <script type="module" src="%PUBLIC_URL%/_dist_/index.js"></script>
